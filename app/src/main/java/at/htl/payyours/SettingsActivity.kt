@@ -31,10 +31,10 @@ class SettingsActivity : AppCompatActivity() {
       val payment = Payment(
         preferences.getInt(COURTS_KEY, DEFAULT_COURTS),
         preferences.getInt(PLAYERS_KEY, DEFAULT_PLAYERS),
-        preferences.getFloat(PRICE_PER_UNIT_KEY, DEFAULT_PRICE_PER_UNIT).toString()
+        preferences.getFloat(PRICE_PER_UNIT_KEY, DEFAULT_PRICE_PER_UNIT).toDouble()
       )
 
-      Log.e(LOG_TAG, "getStoredPayment(): $payment")
+      Log.d(LOG_TAG, "getStoredPayment(): $payment")
       return payment
 
     }
@@ -45,7 +45,7 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
         btn_ok.setOnClickListener { onSave() }
         val payment = getStoredPayment(this)
-        edit_price.setText("${payment.pricePerUnitText}")
+        edit_price.setText("${payment.pricePerUnit}")
         edit_player.setText("${payment.players}")
         edit_place.setText("${payment.courts}")
     }
