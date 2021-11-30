@@ -13,26 +13,29 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-  var payment : Payment = Payment(0,0,0.0)
+  var payment: Payment = Payment(0, 0, 0.0)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
 
-      btn_place_plus.setOnClickListener { add(edit_places_main,1) }
-      btn_minus_place.setOnClickListener { add(edit_places_main,-1) }
-      btn_player_plus.setOnClickListener { add(edit_player_main,1) }
-      btn_minus_player.setOnClickListener { add(edit_player_main,-1) }
+    btn_place_plus.setOnClickListener { add(edit_places_main, 1) }
+    btn_minus_place.setOnClickListener { add(edit_places_main, -1) }
+    btn_player_plus.setOnClickListener { add(edit_player_main, 1) }
+    btn_minus_player.setOnClickListener { add(edit_player_main, -1) }
 
-    }
+    payment = SettingsActivity.getStoredPayment(this)
+    updatePaymentTextView()
+
+  }
 
   override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-    menuInflater.inflate(R.menu.menu_main,menu)
+    menuInflater.inflate(R.menu.menu_main, menu)
     return super.onCreateOptionsMenu(menu)
   }
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    var result = when(item?.itemId){
+    var result = when (item?.itemId) {
       R.id.menu_item_quit -> {
         finish()
         true
@@ -69,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
   }
 
-  private fun add(textView: TextView, value: Int){
+  private fun add(textView: TextView, value: Int) {
     val newValue = textView.text.toString().toInt() + value
     textView.text = "$newValue"
     updatePayment()
@@ -80,7 +83,8 @@ class MainActivity : AppCompatActivity() {
     payment = Payment(
       edit_places_main.text.toString().toInt(),
       edit_player_main.text.toString().toInt(),
-      payment.pricePerUnit)
+      payment.pricePerUnit
+    )
   }
 
 

@@ -4,7 +4,7 @@ import java.io.Serializable
 import java.text.DecimalFormat
 import java.util.*
 
-data class Payment(var courts: Int, var players : Int, var pricePerUnit: Double): Serializable {
+data class Payment(var courts: Int, var players: Int, var pricePerUnit: Double) : Serializable {
 
   val amount: Double
     get() {

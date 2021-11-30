@@ -11,7 +11,7 @@ import java.util.*
 
 class SettingsActivity : AppCompatActivity() {
 
-  companion object{
+  companion object {
 
     val LOG_TAG = SettingsActivity::class.java.simpleName
 
@@ -24,7 +24,7 @@ class SettingsActivity : AppCompatActivity() {
     val DEFAULT_PLAYERS = 2
     val DEFAULT_PRICE_PER_UNIT = 1.0F
 
-    fun getStoredPayment(context: Context) : Payment{
+    fun getStoredPayment(context: Context): Payment {
       val preferences = context.applicationContext
         .getSharedPreferences(PREFERENCE_FILENAME, Context.MODE_PRIVATE)
 
@@ -40,15 +40,16 @@ class SettingsActivity : AppCompatActivity() {
     }
 
   }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings)
-        btn_ok.setOnClickListener { onSave() }
-        val payment = getStoredPayment(this)
-        edit_price.setText("${payment.pricePerUnit}")
-        edit_player.setText("${payment.players}")
-        edit_place.setText("${payment.courts}")
-    }
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_settings)
+    btn_ok.setOnClickListener { onSave() }
+    val payment = getStoredPayment(this)
+    edit_price.setText("${payment.pricePerUnit}")
+    edit_player.setText("${payment.players}")
+    edit_place.setText("${payment.courts}")
+  }
 
   private fun onSave() {
 
