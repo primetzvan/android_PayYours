@@ -85,6 +85,33 @@
     app:layout_constraintBaseline_toBaselineOf="@+id/edit_places_main"
     app:layout_constraintStart_toEndOf="@+id/barrier2" />
 
+  <Button
+    android:id="@+id/btn_minus_place"
+    android:layout_width="60dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/basic_start_margin"
+    android:text="-"
+    app:layout_constraintBaseline_toBaselineOf="@+id/btn_place_plus"
+    app:layout_constraintStart_toEndOf="@+id/barrier3" />
+
+  <Button
+    android:id="@+id/btn_minus_player"
+    android:layout_width="60dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/basic_start_margin"
+    android:text="-"
+    app:layout_constraintBaseline_toBaselineOf="@+id/btn_player_plus"
+    app:layout_constraintStart_toEndOf="@+id/barrier3" />
+
+  <TextView
+    android:id="@+id/textView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/basic_start_margin"
+    android:text="0.000"
+    app:layout_constraintBaseline_toBaselineOf="@+id/tv_amount_main"
+    app:layout_constraintStart_toEndOf="@+id/barrier2" />
+
   <androidx.constraintlayout.widget.Barrier
     android:id="@+id/barrier3"
     android:layout_width="wrap_content"
