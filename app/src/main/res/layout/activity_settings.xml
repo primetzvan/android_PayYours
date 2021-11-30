@@ -50,6 +50,7 @@
     android:layout_marginEnd="@dimen/basic_margin"
     android:ems="10"
     android:inputType="numberDecimal"
+    android:digits="0123456789.,"
     android:minHeight="48dp"
     app:layout_constraintBaseline_toBaselineOf="@+id/tv_price"
     app:layout_constraintEnd_toEndOf="parent"
